@@ -8,9 +8,9 @@ public class LinkedList implements List {
         private int index;
         private Node nNode;
 
-        public Node(Object item) {
+        public Node(Object item, int index) {
             this.item = item;
-            index = 0;
+            this.index = index;
             nNode = null;
         }
 
@@ -33,6 +33,10 @@ public class LinkedList implements List {
 
     private Node head;
     private int lastIndex;
+
+    public LinkedList() {
+        head = new Node(null, -1);
+    }
 
     @Override
     public boolean isEmpty() {
