@@ -3,6 +3,37 @@
  */
 public class LinkedList implements List {
 
+    private class Node {
+        private Object item;
+        private int index;
+        private Node nNode;
+
+        public Node(Object item) {
+            this.item = item;
+            index = 0;
+            nNode = null;
+        }
+
+        public Object getItem() {
+            return(item);
+        }
+
+        public void setItem(Object item) {
+            this.item = item;
+        }
+
+        public Node getNextNode(){
+            return(nNode);
+        }
+
+        public void setNextNode(Node node) {
+            nNode = node;
+        }
+    }
+
+    private Node head;
+    private int lastIndex;
+
     @Override
     public boolean isEmpty() {
         return false;
