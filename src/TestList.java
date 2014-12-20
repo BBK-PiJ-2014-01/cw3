@@ -52,6 +52,7 @@ public class TestList {
         list.printList();
         list.add(2,"Bruno");
         list.printList();
+        System.out.println(list.get(0).getReturnValue());
     }
 
 

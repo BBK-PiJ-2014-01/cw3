@@ -39,26 +39,33 @@ public class LinkedList implements List {
         }
 
         public void addNode (Node node) {
-            if (this.getNextNode() == null)
-                this.setNextNode(node);
+            if (getNextNode() == null)
+                setNextNode(node);
             else
-                this.getNextNode().addNode(node);
+                getNextNode().addNode(node);
         }
 
         public void addNode (int index, Node node) {
-            if (this.getNextNode().getIndex() == index) {
-                Node temp = this.getNextNode();
-                this.setNextNode(node);
+            if (getNextNode().getIndex() == index) {
+                Node temp = getNextNode();
+                setNextNode(node);
                 node.setNextNode(temp);
                 node.getNextNode().updateNodeIndex(1);
             } else
-                this.getNextNode().addNode(index, node);
+                getNextNode().addNode(index, node);
         }
 
         public void updateNodeIndex(int delta) {
-            this.setIndex(getIndex() + delta);
-            if (this.getNextNode() != null)
-                this.getNextNode().updateNodeIndex(delta);
+            setIndex(getIndex() + delta);
+            if (getNextNode() != null)
+                getNextNode().updateNodeIndex(delta);
+        }
+
+        public Node findNode (int index) {
+            if (getNextNode().getIndex() == index)
+                return(getNextNode());
+            else
+                return(getNextNode().findNode(index));
         }
 
     }
@@ -114,12 +121,18 @@ public class LinkedList implements List {
 
     @Override
     public ReturnObject get(int index) {
-        return null;
+        if ((index < 0) || (index >= currentIndex))
+            return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
+        else
+            return(new ReturnObjectImpl(head.findNode(index).getItem(),false));
     }
 
     @Override
     public ReturnObject remove(int index) {
-        return null;
+        if ((index < 0) || (index >= currentIndex))
+            return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
+
+        return(null);
     }
 
     public void printList() {
