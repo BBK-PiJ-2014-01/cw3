@@ -53,6 +53,10 @@ public class TestList {
         list.add(2,"Bruno");
         list.printList();
         System.out.println(list.get(0).getReturnValue());
+        list.remove(3);
+        list.printList();
+        list.remove(0);
+        list.printList();
     }
 
 

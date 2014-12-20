@@ -45,7 +45,7 @@ public class LinkedList implements List {
                 getNextNode().addNode(node);
         }
 
-        public void addNode (int index, Node node) {
+        public void addNode(int index, Node node) {
             if (getNextNode().getIndex() == index) {
                 Node temp = getNextNode();
                 setNextNode(node);
@@ -55,19 +55,28 @@ public class LinkedList implements List {
                 getNextNode().addNode(index, node);
         }
 
-        public void updateNodeIndex(int delta) {
-            setIndex(getIndex() + delta);
-            if (getNextNode() != null)
-                getNextNode().updateNodeIndex(delta);
-        }
-
-        public Node findNode (int index) {
+        public Node findNode(int index) {
             if (getNextNode().getIndex() == index)
                 return(getNextNode());
             else
                 return(getNextNode().findNode(index));
         }
 
+        public Node removeNode(int index) {
+            if (getNextNode().getIndex() == index) {
+                Node temp = getNextNode();
+                setNextNode(getNextNode().getNextNode());
+                getNextNode().updateNodeIndex(-1);
+                return(temp);
+            } else
+                return(getNextNode().removeNode(index));
+        }
+
+        public void updateNodeIndex(int delta) {
+            setIndex(getIndex() + delta);
+            if (getNextNode() != null)
+                getNextNode().updateNodeIndex(delta);
+        }
     }
 
     private Node head;
@@ -131,8 +140,10 @@ public class LinkedList implements List {
     public ReturnObject remove(int index) {
         if ((index < 0) || (index >= currentIndex))
             return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
-
-        return(null);
+        else {
+            currentIndex--;
+            return(new ReturnObjectImpl(head.removeNode(index).getItem(),false));
+        }
     }
 
     public void printList() {
