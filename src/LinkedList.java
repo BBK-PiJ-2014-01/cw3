@@ -130,7 +130,7 @@ public class LinkedList implements List {
 
     @Override
     public ReturnObject get(int index) {
-        if ((index < 0) || (index >= currentIndex))
+        if ((index < 0) || (index >= size()))
             return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
         else
             return(new ReturnObjectImpl(head.findNode(index).getItem(),false));
@@ -138,7 +138,7 @@ public class LinkedList implements List {
 
     @Override
     public ReturnObject remove(int index) {
-        if ((index < 0) || (index >= currentIndex))
+        if ((index < 0) || (index >= size()))
             return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
         else {
             currentIndex--;

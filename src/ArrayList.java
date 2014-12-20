@@ -67,7 +67,15 @@ public class ArrayList implements List {
 
     @Override
     public ReturnObject remove(int index) {
-        return null;
+        if ((index < 0) || (index >= size()))
+            return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
+        else {
+            Object temp = objectArray[index];
+            for (int i=index ;i<size();i++)
+                objectArray[i] = objectArray[i+1];
+            currentIndex--;
+            return(new ReturnObjectImpl(temp,false));
+        }
     }
 
     public void arrayResize() {
@@ -78,7 +86,7 @@ public class ArrayList implements List {
     }
 
     public void printList() {
-        for (int i=0;i<objectArray.length;i++) {
+        for (int i=0;i<size();i++) {
             System.out.println("Item: "+objectArray[i]+" Index: "+i);
         }
     }
