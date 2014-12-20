@@ -8,7 +8,6 @@ import static org.junit.Assert.*;
 public class TestReturnObjectImpl {
 
     @Test
-    //
     public void tests_hasError_ReturnsTrueWhenError() {
         ReturnObjectImpl o = new ReturnObjectImpl("String",true);
         assertTrue(o.hasError());
