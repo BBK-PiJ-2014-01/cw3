@@ -9,7 +9,10 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 
     @Override
     public ReturnObject head() {
-        return(get(0));
+        if (isEmpty())
+            return(new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true));
+        else
+            return(get(0));
     }
 
     @Override

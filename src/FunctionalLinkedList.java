@@ -5,12 +5,18 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
 
     @Override
     public ReturnObject head() {
-        return null;
+        if (isEmpty())
+            return(new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true));
+        else
+            return(get(0));
     }
 
     @Override
     public FunctionalList rest() {
-        return null;
+        FunctionalList newList = this;
+        if(!newList.isEmpty())
+            newList.remove(0);
+        return(newList);
     }
 
 }

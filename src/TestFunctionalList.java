@@ -11,7 +11,7 @@ public class TestFunctionalList {
 
     @Before
     public void buildUp() {
-        list = new FunctionalArrayList(2);
+        list = new FunctionalLinkedList();
         list.add("Abba");
         list.add("Beatrice");
         list.add("Carole");
