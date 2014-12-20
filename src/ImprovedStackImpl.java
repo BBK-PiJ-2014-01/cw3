@@ -3,6 +3,12 @@
  */
 public class ImprovedStackImpl implements ImprovedStack {
 
+    private List internalList;
+
+    public ImprovedStackImpl(List list) {
+        internalList = list;
+    }
+
     @Override
     public int size() {
         return 0;

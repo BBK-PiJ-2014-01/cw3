@@ -9,27 +9,36 @@ public class StackImpl extends AbstractStack {
 
     @Override
     public int size() {
-        return 0;
+        return(internalList.size());
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        if(internalList.isEmpty())
+            return(true);
+        else
+            return(false);
     }
 
     @Override
     public void push(Object item) {
-
+        internalList.add(0,item);
     }
 
     @Override
     public ReturnObject top() {
-        return null;
+        if(internalList.isEmpty())
+            return(new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true));
+        else
+            return(internalList.get(0));
     }
 
     @Override
     public ReturnObject pop() {
-        return null;
+        if(internalList.isEmpty())
+            return(new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true));
+        else
+            return(internalList.remove(0));
     }
 
 }

@@ -6,11 +6,11 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class TestList {
-    ArrayList list;
+    LinkedList list;
 
     @Before
     public void buildUp() {
-        list = new ArrayList(3);
+        list = new LinkedList();
     }
 
     /*
