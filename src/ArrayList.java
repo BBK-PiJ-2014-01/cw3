@@ -3,14 +3,23 @@
  */
 public class ArrayList implements List {
 
+    private Object[] objectArray;
+
+    public ArrayList(int size) {
+        objectArray = new Object[size];
+    }
+
     @Override
     public boolean isEmpty() {
-        return false;
+        if (objectArray.length == 0)
+            return(true);
+        else
+            return(false);
     }
 
     @Override
     public int size() {
-        return 0;
+        return(objectArray.length);
     }
 
     @Override
@@ -31,5 +40,12 @@ public class ArrayList implements List {
     @Override
     public ReturnObject remove(int index) {
         return null;
+    }
+
+    public void arrayResize() {
+        Object[] newArray = new Object[objectArray.length * 2];
+        for (int i = 0;i<objectArray.length;i++)
+            newArray[i] = objectArray[i];
+        objectArray = newArray;
     }
 }
