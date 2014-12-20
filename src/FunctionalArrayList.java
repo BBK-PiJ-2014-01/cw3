@@ -3,6 +3,10 @@
  */
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
 
+    public FunctionalArrayList(int size) {
+        super(size);
+    }
+
     @Override
     public ReturnObject head() {
         return null;
