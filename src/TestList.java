@@ -6,24 +6,24 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class TestList {
-    List list;
+    LinkedList list;
 
     @Before
     public void buildUp() {
         list = new LinkedList();
     }
-    @Test
+
     /*
      * When the list is empty, tests that:
      *  - isEmpty() returns true
      *  - size() returns 0
      */
+    @Test
     public void tests_list_1() {
         assertTrue(list.isEmpty());
         assertEquals(0,list.size());
     }
 
-    @Test
     /*
      * When the list has one element, tests that:
      *  - isEmpty() returns false
@@ -33,7 +33,7 @@ public class TestList {
      *  - isEmpty() returns false
      *  - size() returns 2
      */
-
+    @Test
     public void tests_list_2() {
         list.add("String");
         assertFalse(list.isEmpty());
@@ -42,4 +42,17 @@ public class TestList {
         assertFalse(list.isEmpty());
         assertEquals(2,list.size());
     }
+
+    @Test
+    public void tests_list_3() {
+        list.add("Abba");
+        list.add("Beatrice");
+        list.add("Carole");
+        list.add("David");
+        list.printList();
+        list.add(2,"Bruno");
+        list.printList();
+    }
+
+
 }

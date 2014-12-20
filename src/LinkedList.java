@@ -34,6 +34,10 @@ public class LinkedList implements List {
             return(index);
         }
 
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
         public void addNode (Node node) {
             if (this.getNextNode() == null)
                 this.setNextNode(node);
@@ -46,10 +50,17 @@ public class LinkedList implements List {
                 Node temp = this.getNextNode();
                 this.setNextNode(node);
                 node.setNextNode(temp);
+                node.getNextNode().updateNodeIndex(1);
             } else
                 this.getNextNode().addNode(index, node);
         }
-        
+
+        public void updateNodeIndex(int delta) {
+            this.setIndex(getIndex() + delta);
+            if (this.getNextNode() != null)
+                this.getNextNode().updateNodeIndex(delta);
+        }
+
     }
 
     private Node head;
@@ -111,4 +122,11 @@ public class LinkedList implements List {
         return null;
     }
 
+    public void printList() {
+        Node current = head;
+        while (current != null) {
+            System.out.println("Item: "+current.getItem()+" Index: "+current.getIndex());
+            current = current.getNextNode();
+        }
+    }
 }
