@@ -9,12 +9,15 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 
     @Override
     public ReturnObject head() {
-        return null;
+        return(get(0));
     }
 
     @Override
     public FunctionalList rest() {
-        return null;
+        FunctionalList newList = new FunctionalArrayList(size()-1);
+        for (int i=1;i<size();i++)
+            newList.add(get(i).getReturnValue());
+        return(newList);
     }
     
 }
