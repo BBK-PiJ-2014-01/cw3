@@ -4,14 +4,17 @@
 public class ArrayList implements List {
 
     private Object[] objectArray;
+    private int currentIndex;
+
 
     public ArrayList(int size) {
         objectArray = new Object[size];
+        currentIndex = 0;
     }
 
     @Override
     public boolean isEmpty() {
-        if (objectArray.length == 0)
+        if (currentIndex == 0)
             return(true);
         else
             return(false);
@@ -19,22 +22,47 @@ public class ArrayList implements List {
 
     @Override
     public int size() {
-        return(objectArray.length);
+        return(currentIndex);
     }
 
     @Override
     public ReturnObject add(int index, Object item) {
-        return null;
+        if (item == null)
+            return(new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT,true));
+        else {
+            if ((index < 0) || (index >= size()))
+                return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
+            else {
+                if (objectArray.length - size() == 0)
+                    arrayResize();
+                for (int i=currentIndex ;i>index;i--)
+                    objectArray[i] = objectArray[i-1];
+                objectArray[index] = item;
+                currentIndex++;
+                return(null);
+            }
+        }
     }
 
     @Override
     public ReturnObject add(Object item) {
-        return null;
+        if (item == null)
+            return(new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT,true));
+        else {
+            if (objectArray.length - size() == 0)
+                arrayResize();
+            objectArray[currentIndex] = item;
+            currentIndex++;
+            return(null);
+        }
     }
 
     @Override
     public ReturnObject get(int index) {
-        return null;
+        if ((index < 0) || (index >= size()))
+            return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
+        else
+            return(new ReturnObjectImpl(objectArray[index],false));
     }
 
     @Override
@@ -48,4 +76,11 @@ public class ArrayList implements List {
             newArray[i] = objectArray[i];
         objectArray = newArray;
     }
+
+    public void printList() {
+        for (int i=0;i<objectArray.length;i++) {
+            System.out.println("Item: "+objectArray[i]+" Index: "+i);
+        }
+    }
+
 }
