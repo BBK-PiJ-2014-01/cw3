@@ -105,7 +105,7 @@ public class LinkedList implements List {
         if (item == null)
             return(new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT,true));
         else {
-            if ((index < 0) || (index >= currentIndex))
+            if ((index < 0) || (index >= size()))
                 return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
             else {
                 Node newNode = new Node(index, item);

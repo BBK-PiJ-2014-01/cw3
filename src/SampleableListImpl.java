@@ -4,7 +4,7 @@
 public class SampleableListImpl implements SampleableList {
 
     @Override
-    public boolean isEmpty() {
+      public boolean isEmpty() {
         return false;
     }
 
