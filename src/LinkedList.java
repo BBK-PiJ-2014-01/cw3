@@ -65,8 +65,12 @@ public class LinkedList implements List {
         public Node removeNode(int index) {
             if (getNextNode().getIndex() == index) {
                 Node temp = getNextNode();
-                setNextNode(getNextNode().getNextNode());
-                getNextNode().updateNodeIndex(-1);
+                if (getNextNode().getNextNode() != null) {
+                    setNextNode(getNextNode().getNextNode());
+                    getNextNode().updateNodeIndex(-1);
+                } else {
+                    setNextNode(null);
+                }
                 return(temp);
             } else
                 return(getNextNode().removeNode(index));

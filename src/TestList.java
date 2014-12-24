@@ -58,8 +58,8 @@ public class TestList {
         list.remove(0);
         list.remove(0);
         list.remove(0);
+        list.remove(0);
         list.printList();
     }
-
 
 }
