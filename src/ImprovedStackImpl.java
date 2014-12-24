@@ -3,45 +3,56 @@
  */
 public class ImprovedStackImpl implements ImprovedStack {
 
-    private List internalList;
+    private StackImpl internalStack;
 
-    public ImprovedStackImpl(List list) {
-        internalList = list;
+    public ImprovedStackImpl() {
+        internalStack = new StackImpl(new LinkedList());
     }
 
     @Override
     public int size() {
-        return 0;
+        return(internalStack.size());
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return(internalStack.isEmpty());
     }
 
     @Override
     public void push(Object item) {
-
+        internalStack.push(item);
     }
 
     @Override
     public ReturnObject top() {
-        return null;
+        return(internalStack.top());
     }
 
     @Override
     public ReturnObject pop() {
-        return null;
+        return(internalStack.pop());
     }
 
     @Override
     public ImprovedStack reverse() {
-        return null;
+        ImprovedStack newStack = new ImprovedStackImpl();
+        if (internalStack.isEmpty())
+            return(newStack);
+        else {
+            while(!internalStack.isEmpty())
+                newStack.push(internalStack.pop().getReturnValue());
+            return(newStack);
+        }
     }
 
     @Override
     public void remove(Object object) {
-
+        ImprovedStack newStack = new ImprovedStackImpl();
+        while (!internalStack.isEmpty())
+            if (!internalStack.pop().getReturnValue().equals(object))
+                newStack.push(object);
+        internalStack = (StackImpl) newStack.reverse();
     }
 
 }
