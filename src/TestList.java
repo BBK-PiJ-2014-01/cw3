@@ -56,6 +56,8 @@ public class TestList {
         list.remove(3);
         list.printList();
         list.remove(0);
+        list.remove(0);
+        list.remove(0);
         list.printList();
     }
 
