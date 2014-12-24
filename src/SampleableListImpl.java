@@ -5,7 +5,14 @@ public class SampleableListImpl extends LinkedList implements SampleableList {
 
     @Override
     public SampleableList sample() {
-        return null;
+        SampleableList newList = new SampleableListImpl();
+        if (this.isEmpty())
+            return(newList);
+        else {
+            for (int i = 0;i<this.size();i += 2)
+                newList.add(this.get(i));
+            return(newList);
+        }
     }
 
 }
