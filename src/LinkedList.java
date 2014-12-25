@@ -151,7 +151,7 @@ public class LinkedList implements List {
     }
 
     public void printList() {
-        Node current = head;
+        Node current = head.getNextNode();
         while (current != null) {
             System.out.println("Item: "+current.getItem()+" Index: "+current.getIndex());
             current = current.getNextNode();
