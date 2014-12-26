@@ -6,7 +6,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class TestList {
-    ArrayList list;
+    List list;
 
     @Before
     public void buildUp() {
@@ -30,6 +30,7 @@ public class TestList {
      *  - the list is empty, the list size is 0.
      */
         assertEquals(null,list.add("String1"));
+        assertEquals(ErrorMessage.NO_ERROR,list.get(0).getError());
         assertFalse(list.isEmpty());
         assertEquals(1,list.size());
         assertEquals("String1",list.get(0).getReturnValue());
