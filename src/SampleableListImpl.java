@@ -10,7 +10,7 @@ public class SampleableListImpl extends LinkedList implements SampleableList {
             return(newList);
         else {
             for (int i = 0;i<this.size();i += 2)
-                newList.add(this.get(i));
+                newList.add(this.get(i).getReturnValue());
             return(newList);
         }
     }
