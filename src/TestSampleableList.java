@@ -14,10 +14,12 @@ public class TestSampleableList {
     }
 
     /*
-     *
+     * Tests that the method sample() returns:
+     * - a list with the 1st, 3rd, 5th... element of the original list
+     * - an empty list, if the original list is empty
      */
     @Test
-    public void tests_sampleable_list_1() {
+    public void tests_sampleableListInterfaceImplementation() {
         assertTrue(list.sample().isEmpty());
         list.add("Item1");
         list.add("Item2");
@@ -25,7 +27,11 @@ public class TestSampleableList {
         list.add("Item4");
         list.add("Item5");
         list.add("Item6");
-        assertEquals(3,list.sample().size());
+        SampleableList newList = list.sample();
+        assertEquals(3,newList.size());
+        assertEquals(list.get(0).getReturnValue(),newList.get(0).getReturnValue());
+        assertEquals(list.get(2).getReturnValue(),newList.get(1).getReturnValue());
+        assertEquals(list.get(4).getReturnValue(),newList.get(2).getReturnValue());
     }
 
 }
