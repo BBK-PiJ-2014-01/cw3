@@ -134,6 +134,8 @@ public class LinkedList implements List {
 
     @Override
     public ReturnObject get(int index) {
+        if (isEmpty())
+            return(new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true));
         if ((index < 0) || (index >= size()))
             return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
         else
@@ -142,6 +144,8 @@ public class LinkedList implements List {
 
     @Override
     public ReturnObject remove(int index) {
+        if (isEmpty())
+            return(new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true));
         if ((index < 0) || (index >= size()))
             return(new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS,true));
         else {
