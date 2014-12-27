@@ -37,22 +37,20 @@ public class ImprovedStackImpl implements ImprovedStack {
     @Override
     public ImprovedStack reverse() {
         ImprovedStack newStack = new ImprovedStackImpl();
-        if (internalStack.isEmpty())
+        if (this.isEmpty())
             return(newStack);
         else {
-            while(!internalStack.isEmpty())
-                newStack.push(internalStack.pop().getReturnValue());
+            for (int i=0;i<this.size();i++)
+                newStack.push(this.internalStack.internalList.get(i).getReturnValue());
             return(newStack);
         }
     }
 
     @Override
     public void remove(Object object) {
-        ImprovedStack newStack = new ImprovedStackImpl();
-        while (!internalStack.isEmpty())
-            if (!internalStack.pop().getReturnValue().equals(object))
-                newStack.push(object);
-        internalStack = (StackImpl) newStack.reverse();
+        for (int i=size()-1;i>=0;i--)
+            if (this.internalStack.internalList.get(i).getReturnValue().equals(object))
+                this.internalStack.internalList.remove(i);
     }
 
 }
