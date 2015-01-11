@@ -2,8 +2,10 @@
  * Created by Pierre on 24/12/2014.
  */
 
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestSampleableList {
     SampleableList list;
