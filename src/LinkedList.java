@@ -14,6 +14,11 @@ public class LinkedList implements List {
             nNode = null;
         }
 
+        /**
+         * Returns the value in the node.
+         *
+         * @return the value in the node
+         */
         public Object getItem() {
             return(item);
         }
@@ -22,18 +27,38 @@ public class LinkedList implements List {
             this.item = item;
         }
 
+        /**
+         * Returns the address of the next node.
+         *
+         * @return the address of the next node
+         */
         public Node getNextNode(){
             return(nNode);
         }
 
+        /**
+         * Sets the address of the next node.
+         *
+         * @param node the address of the next node
+         */
         public void setNextNode(Node node) {
             nNode = node;
         }
 
+        /**
+         * Returns the index of the node.
+         *
+         * @return the index of the node
+         */
         public int getIndex() {
             return(index);
         }
 
+        /**
+         * Sets the index of the node.
+         *
+         * @param index the index to set for the node
+         */
         public void setIndex(int index) {
             this.index = index;
         }
