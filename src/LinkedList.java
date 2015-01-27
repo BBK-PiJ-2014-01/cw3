@@ -8,6 +8,12 @@ public class LinkedList implements List {
         private Object item;
         private Node nNode;
 
+        /**
+         * Constructor for the class Node
+         *
+         * @param item the value stored in the node
+         * @param index the index set for the node
+         */
         public Node(int index, Object item) {
             this.index = index;
             this.item = item;
@@ -23,6 +29,11 @@ public class LinkedList implements List {
             return(item);
         }
 
+        /**
+         * Sets the value stored in the node.
+         *
+         * @param item the value to be stored in the node
+         */
         public void setItem(Object item) {
             this.item = item;
         }
@@ -63,6 +74,11 @@ public class LinkedList implements List {
             this.index = index;
         }
 
+        /**
+         * Adds the index of the node.
+         *
+         * @param index the index to set for the node
+         */
         public void addNode (Node node) {
             if (getNextNode() == null)
                 setNextNode(node);
