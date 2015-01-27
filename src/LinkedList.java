@@ -75,9 +75,9 @@ public class LinkedList implements List {
         }
 
         /**
-         * Adds the index of the node.
+         * Adds a node at the end of the list.
          *
-         * @param index the index to set for the node
+         * @param node the node to add to the list
          */
         public void addNode (Node node) {
             if (getNextNode() == null)
@@ -86,6 +86,12 @@ public class LinkedList implements List {
                 getNextNode().addNode(node);
         }
 
+        /**
+         * Adds a node at a set position in the list.
+         *
+         * @param node the node to add to the list
+         * @param index the position at which the node should be inserted in the list
+         */
         public void addNode(int index, Node node) {
             if (getNextNode().getIndex() == index) {
                 Node temp = getNextNode();
@@ -96,6 +102,12 @@ public class LinkedList implements List {
                 getNextNode().addNode(index, node);
         }
 
+        /**
+         * Finds the node at the requested position in the list.
+         *
+         * @param index the position at which the node should be found in the list
+         * @return the node found at the requested position
+         */
         public Node findNode(int index) {
             if (getNextNode().getIndex() == index)
                 return(getNextNode());
@@ -103,6 +115,12 @@ public class LinkedList implements List {
                 return(getNextNode().findNode(index));
         }
 
+        /**
+         * Removes the node at the requested position in the list.
+         *
+         * @param index the position at which the node should be removed from the list
+         * @return the node removed at the requested position
+         */
         public Node removeNode(int index) {
             if (getNextNode().getIndex() == index) {
                 Node temp = getNextNode();
@@ -117,6 +135,11 @@ public class LinkedList implements List {
                 return(getNextNode().removeNode(index));
         }
 
+        /**
+         * Updates subsequent node indices when a node has been added or removed
+         *
+         * @param delta the increment to apply to indices (+1 after node added, -1 after node removed)
+         */
         public void updateNodeIndex(int delta) {
             setIndex(getIndex() + delta);
             if (getNextNode() != null)
@@ -127,6 +150,11 @@ public class LinkedList implements List {
     private Node head;
     private int currentIndex;
 
+    /**
+     * Constructor for the class LinkedList
+     * Sets up a head node pointing to null, with an index set to -1
+     * Stores the index value of the next added node, set to 0 for the first one.
+     */
     public LinkedList() {
         head = new Node(-1, null);
         currentIndex = 0;
