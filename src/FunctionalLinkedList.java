@@ -3,6 +3,9 @@
  */
 public class FunctionalLinkedList extends LinkedList implements FunctionalList {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject head() {
         if (isEmpty())
@@ -11,6 +14,9 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
             return(get(0));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public FunctionalList rest() {
         FunctionalList newList = new FunctionalLinkedList();

@@ -7,6 +7,9 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
         super(size);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject head() {
         if (isEmpty())
@@ -15,6 +18,9 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
             return(get(0));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public FunctionalList rest() {
         FunctionalList newList = new FunctionalArrayList(size());

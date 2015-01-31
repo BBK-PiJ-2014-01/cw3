@@ -160,6 +160,9 @@ public class LinkedList implements List {
         currentIndex = 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isEmpty() {
         if (currentIndex == 0)
@@ -168,11 +171,17 @@ public class LinkedList implements List {
             return(false);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int size() {
         return(currentIndex);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject add(int index, Object item) {
         if (item == null)
@@ -189,6 +198,9 @@ public class LinkedList implements List {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject add(Object item) {
         if (item == null)
@@ -201,6 +213,9 @@ public class LinkedList implements List {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject get(int index) {
         if (isEmpty())
@@ -211,6 +226,9 @@ public class LinkedList implements List {
             return(new ReturnObjectImpl(head.findNode(index).getItem(),false));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject remove(int index) {
         if (isEmpty())

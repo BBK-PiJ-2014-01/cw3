@@ -9,31 +9,49 @@ public class ImprovedStackImpl implements ImprovedStack {
         internalStack = new StackImpl(new LinkedList());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int size() {
         return(internalStack.size());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isEmpty() {
         return(internalStack.isEmpty());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void push(Object item) {
         internalStack.push(item);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject top() {
         return(internalStack.top());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ReturnObject pop() {
         return(internalStack.pop());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ImprovedStack reverse() {
         ImprovedStack newStack = new ImprovedStackImpl();
@@ -46,6 +64,9 @@ public class ImprovedStackImpl implements ImprovedStack {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void remove(Object object) {
         for (int i=size()-1;i>=0;i--)

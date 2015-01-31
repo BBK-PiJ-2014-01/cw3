@@ -1,16 +1,26 @@
 /**
  * Created by PierreM on 05/12/2014.
+ * Implementation of the Interface ReturnObject
  */
 public class ReturnObjectImpl implements ReturnObject {
 
     private Object item;
     private boolean errorFlag;
 
+    /**
+     * Constructor for the class ReturnObjectImpl
+     *
+     * @param item
+     * @param errorFlag
+     */
     public ReturnObjectImpl(Object item, boolean errorFlag) {
         this.item = item;
         this.errorFlag = errorFlag;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean hasError() {
         if (errorFlag)
@@ -19,6 +29,9 @@ public class ReturnObjectImpl implements ReturnObject {
             return(false);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ErrorMessage getError() {
         if(hasError())
@@ -27,6 +40,9 @@ public class ReturnObjectImpl implements ReturnObject {
             return(ErrorMessage.NO_ERROR);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Object getReturnValue() {
         if(hasError())

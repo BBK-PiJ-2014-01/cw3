@@ -1,5 +1,6 @@
 /**
  * Created by PierreM on 17/12/2014.
+ * Testing the implementation of Interface ReturnObject
  */
 
 import org.junit.Test;
