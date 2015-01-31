@@ -5,6 +5,9 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     private StackImpl internalStack;
 
+    /**
+     * Constructor for the class ImprovedStackImpl
+     */
     public ImprovedStackImpl() {
         internalStack = new StackImpl(new LinkedList());
     }

@@ -3,6 +3,11 @@
  */
 public class StackImpl extends AbstractStack {
 
+    /**
+     * Constructor for the class StackImpl
+     *
+     * @param list underlying structure storing the elements in the stack
+     */
     public StackImpl(List list) {
         super(list);
     }

@@ -3,6 +3,11 @@
  */
 public class FunctionalArrayList extends ArrayList implements FunctionalList {
 
+    /**
+     * Constructor for the class FunctionalArrayList
+     *
+     * @param size
+     */
     public FunctionalArrayList(int size) {
         super(size);
     }
