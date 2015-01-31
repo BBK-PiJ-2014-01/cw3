@@ -6,7 +6,11 @@ public class ArrayList implements List {
     private Object[] objectArray;
     private int currentIndex;
 
-
+    /**
+     * Constructor for the class ArrayList
+     *
+     * @param size
+     */
     public ArrayList(int size) {
         objectArray = new Object[size];
         currentIndex = 0;
@@ -106,11 +110,4 @@ public class ArrayList implements List {
             newArray[i] = objectArray[i];
         objectArray = newArray;
     }
-
-    public void printList() {
-        for (int i=0;i<size();i++) {
-            System.out.println("Item: "+objectArray[i]+" Index: "+i);
-        }
-    }
-
 }

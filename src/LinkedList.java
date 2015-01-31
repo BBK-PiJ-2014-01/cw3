@@ -240,12 +240,4 @@ public class LinkedList implements List {
             return(new ReturnObjectImpl(head.removeNode(index).getItem(),false));
         }
     }
-
-    public void printList() {
-        Node current = head.getNextNode();
-        while (current != null) {
-            System.out.println("Item: "+current.getItem()+" Index: "+current.getIndex());
-            current = current.getNextNode();
-        }
-    }
 }
