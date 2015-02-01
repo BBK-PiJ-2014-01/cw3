@@ -7,6 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 
 public class TestReturnObjectImpl {
 
@@ -26,27 +27,27 @@ public class TestReturnObjectImpl {
     public void tests_getError_Returns_NO_ERROR_WhenNoError() {
         ReturnObjectImpl o = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,false);
         ErrorMessage expected = ErrorMessage.NO_ERROR;
-        assertEquals(o.getError(), expected);
+        assertEquals("Should return NO_ERROR message when no error",expected, o.getError());
     }
 
     @Test
     public void tests_getError_ReturnsErrorMessageWhenError() {
         ReturnObjectImpl o = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true);
         ErrorMessage expected = ErrorMessage.EMPTY_STRUCTURE;
-        assertEquals(o.getError(), expected);
+        assertEquals("Should return EMPTY_STRUCTURE message",expected, o.getError());
     }
 
     @Test
     public void tests_getReturnValue_ReturnsNullWhenError() {
-        ReturnObjectImpl o = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE,true);
-        assertEquals(o.getReturnValue(), null);
+        ReturnObjectImpl o = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE, true);
+        assertNull("Should return null value",o.getReturnValue());
     }
 
     @Test
     public void tests_getReturnValue_ReturnsObjectWhenNoError() {
         ReturnObjectImpl o = new ReturnObjectImpl("String",false);
         Object expected = "String";
-        assertEquals(o.getReturnValue(), expected);
+        assertEquals("Returned value should be 'String'",expected, o.getReturnValue());
     }
 
 }

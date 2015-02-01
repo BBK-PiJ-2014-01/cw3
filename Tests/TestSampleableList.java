@@ -23,7 +23,7 @@ public class TestSampleableList {
     @Test
     public void tests_sampleableListInterfaceImplementation() {
         // checking the sampleable list is empty, if the original list is empty
-        assertTrue(list.sample().isEmpty());
+        assertTrue("List should be empty",list.sample().isEmpty());
         // checking the sampleable list is correct (order of elements and value), if the original list is not empty
         list.add("Item1");
         list.add("Item2");
