@@ -26,12 +26,12 @@ public class TestFunctionalList {
         assertEquals(ErrorMessage.EMPTY_STRUCTURE,list.head().getError());
         list.add(1);
         list.add(2);
-        assertEquals(1,list.head().getReturnValue());
-        assertEquals(1,list.get(0).getReturnValue());
-        assertEquals(1,list.remove(0).getReturnValue());
-        assertEquals(2,list.head().getReturnValue());
-        assertEquals(2,list.get(0).getReturnValue());
-        assertEquals(2,list.remove(0).getReturnValue());
+        assertEquals("Returned value should be 1", 1, list.head().getReturnValue());
+        assertEquals("Returned value should be 1",1,list.get(0).getReturnValue());
+        assertEquals("Returned value should be 1",1,list.remove(0).getReturnValue());
+        assertEquals("Returned value should be 2",2,list.head().getReturnValue());
+        assertEquals("Returned value should be 2",2,list.get(0).getReturnValue());
+        assertEquals("Returned value should be 2",2,list.remove(0).getReturnValue());
         assertEquals(ErrorMessage.EMPTY_STRUCTURE,list.head().getError());
     }
 

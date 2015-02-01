@@ -35,10 +35,10 @@ public class TestSampleableList {
         assertEquals(6,list.size());
         assertEquals(3, newList.size());
         assertEquals(list.get(0).getReturnValue(),newList.get(0).getReturnValue());
-        assertEquals("Item1",newList.get(0).getReturnValue());
+        assertEquals("Value should be 'Item1'","Item1",newList.get(0).getReturnValue());
         assertEquals(list.get(2).getReturnValue(),newList.get(1).getReturnValue());
-        assertEquals("Item3",newList.get(1).getReturnValue());
+        assertEquals("Value should be 'Item3'","Item3",newList.get(1).getReturnValue());
         assertEquals(list.get(4).getReturnValue(),newList.get(2).getReturnValue());
-        assertEquals("Item5",newList.get(2).getReturnValue());
+        assertEquals("Value should be 'Item5'","Item5",newList.get(2).getReturnValue());
     }
 }

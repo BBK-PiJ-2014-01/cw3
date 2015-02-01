@@ -13,13 +13,13 @@ public class TestReturnObjectImpl {
     @Test
     public void tests_hasError_ReturnsTrueWhenError() {
         ReturnObjectImpl o = new ReturnObjectImpl("String",true);
-        assertTrue(o.hasError());
+        assertTrue("'hasError' should return TRUE when error",o.hasError());
     }
 
     @Test
     public void tests_hasError_ReturnsFalseWhenNoError() {
         ReturnObjectImpl o = new ReturnObjectImpl("String",false);
-        assertFalse(o.hasError());
+        assertFalse("'hasError' should return FALSE when no error",o.hasError());
     }
 
     @Test

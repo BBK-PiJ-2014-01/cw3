@@ -35,18 +35,18 @@ public class TestImprovedStack {
         assertEquals(3,newStack.size());
         assertEquals(3,stack.size());
 
-        assertEquals("Item1", newStack.top().getReturnValue());
-        assertEquals("Item1",newStack.pop().getReturnValue());
+        assertEquals("Value should be 'Item1'","Item1", newStack.top().getReturnValue());
+        assertEquals("Value should be 'Item1'","Item1",newStack.pop().getReturnValue());
         assertFalse(newStack.isEmpty());
         assertEquals(2,newStack.size());
 
-        assertEquals("Item2", newStack.top().getReturnValue());
-        assertEquals("Item2",newStack.pop().getReturnValue());
+        assertEquals("Value should be 'Item2'","Item2", newStack.top().getReturnValue());
+        assertEquals("Value should be 'Item2'","Item2",newStack.pop().getReturnValue());
         assertFalse(newStack.isEmpty());
         assertEquals(1,newStack.size());
 
-        assertEquals("Item3", newStack.top().getReturnValue());
-        assertEquals("Item3",newStack.pop().getReturnValue());
+        assertEquals("Value should be 'Item3'","Item3", newStack.top().getReturnValue());
+        assertEquals("Value should be 'Item3'","Item3",newStack.pop().getReturnValue());
         assertTrue(newStack.isEmpty());
         assertEquals(0,newStack.size());
 
@@ -61,22 +61,22 @@ public class TestImprovedStack {
         stack.push("Item3");
         stack.push("Item4");
         stack.push("Item1");
-        assertEquals(7,stack.size());
+        assertEquals("List size should be 7",7,stack.size());
 
         stack.remove("Item1");
-        assertEquals(4,stack.size());
+        assertEquals("List size should be 4",4,stack.size());
 
-        assertEquals("Item4", stack.top().getReturnValue());
-        assertEquals("Item4",stack.pop().getReturnValue());
+        assertEquals("Value should be 'Item4'","Item4", stack.top().getReturnValue());
+        assertEquals("Value should be 'Item4'","Item4",stack.pop().getReturnValue());
         assertEquals(3,stack.size());
-        assertEquals("Item3", stack.top().getReturnValue());
-        assertEquals("Item3",stack.pop().getReturnValue());
+        assertEquals("Value should be 'Item3'","Item3", stack.top().getReturnValue());
+        assertEquals("Value should be 'Item3'","Item3",stack.pop().getReturnValue());
         assertEquals(2,stack.size());
-        assertEquals("Item3", stack.top().getReturnValue());
-        assertEquals("Item3",stack.pop().getReturnValue());
+        assertEquals("Value should be 'Item3'","Item3", stack.top().getReturnValue());
+        assertEquals("Value should be 'Item3'","Item3",stack.pop().getReturnValue());
         assertEquals(1,stack.size());
-        assertEquals("Item2", stack.top().getReturnValue());
-        assertEquals("Item2",stack.pop().getReturnValue());
+        assertEquals("Value should be 'Item2'","Item2", stack.top().getReturnValue());
+        assertEquals("Value should be 'Item2'","Item2",stack.pop().getReturnValue());
         assertTrue(stack.isEmpty());
 
     }
