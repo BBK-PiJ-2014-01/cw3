@@ -15,6 +15,9 @@ public class LinkedList implements List {
 
         /**
          * Constructor for the class Node
+         * - Sets the value of the node
+         * - Sets the index value of the node
+         * - Makes the new node pointing to null
          *
          * @param item the value stored in the node
          * @param index the index set for the node

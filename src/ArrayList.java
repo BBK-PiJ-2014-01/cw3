@@ -1,5 +1,12 @@
 /**
  * Created by PierreM on 05/12/2014.
+ * Array based implementation of the Interface List
+ * - The initial size of the array is set by a parameter in the constructor.
+ * This potentially minimises the need of re-sizing the array,
+ * if the approximate size required is known at the time the list is created.
+ * - Creating a list generates:
+ *      . an array of Objects
+ *      . an index reference storing the index value of the object that will be inserted next in the array.
  */
 public class ArrayList implements List {
 
@@ -8,8 +15,10 @@ public class ArrayList implements List {
 
     /**
      * Constructor for the class ArrayList
+     * - Creates an array of Objects of size 'size'
+     * - Sets the index reference to 0, the index value of the first object that will be inserted in the array
      *
-     * @param size
+     * @param size size set for the array
      */
     public ArrayList(int size) {
         objectArray = new Object[size];
@@ -104,6 +113,9 @@ public class ArrayList implements List {
         }
     }
 
+    /**
+     * Doubles the size of an array, keeping all the original content
+     */
     public void arrayResize() {
         Object[] newArray = new Object[objectArray.length * 2];
         for (int i = 0;i<objectArray.length;i++)
