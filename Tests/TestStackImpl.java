@@ -26,7 +26,7 @@ public class TestStackImpl {
      *  - size() returns 0
      */
         assertTrue(stack.isEmpty());
-        assertEquals(0,stack.size());
+        assertEquals("Stack size should be 0",0,stack.size());
     /*
      * When the first element is added to a stack, using push(object), tests that:
      *  - the stack is not empty, the stack size is 1, the value stored is correct.
@@ -36,11 +36,11 @@ public class TestStackImpl {
         stack.push("Item1");
         assertEquals(ErrorMessage.NO_ERROR,stack.top().getError());
         assertFalse(stack.isEmpty());
-        assertEquals(1,stack.size());
+        assertEquals("Stack size should be 1",1,stack.size());
         assertEquals("Value should be 'Item1'","Item1",stack.top().getReturnValue());
         assertEquals("Value should be 'Item1'","Item1",stack.pop().getReturnValue());
         assertTrue(stack.isEmpty());
-        assertEquals(0,stack.size());
+        assertEquals("Stack size should be 0",0,stack.size());
         assertEquals(ErrorMessage.EMPTY_STRUCTURE,stack.top().getError());
         assertEquals(ErrorMessage.EMPTY_STRUCTURE,stack.pop().getError());
     /*
@@ -49,7 +49,7 @@ public class TestStackImpl {
 
         stack.push(null);
         assertTrue(stack.isEmpty());
-        assertEquals(0,stack.size());
+        assertEquals("Stack size should be 0",0,stack.size());
 
     /*
      * Testing the stack returns the appropriate elements
@@ -58,30 +58,30 @@ public class TestStackImpl {
         stack.push("Item2");
         stack.push("Item3");
         assertFalse(stack.isEmpty());
-        assertEquals(3,stack.size());
+        assertEquals("Stack size should be 3",3,stack.size());
 
         assertEquals("Value should be 'Item3'","Item3", stack.top().getReturnValue());
         assertEquals("Value should be 'Item3'","Item3",stack.pop().getReturnValue());
         assertFalse(stack.isEmpty());
-        assertEquals(2,stack.size());
+        assertEquals("Stack size should be 2",2,stack.size());
 
         stack.push("Item4");
         assertFalse(stack.isEmpty());
-        assertEquals(3,stack.size());
+        assertEquals("Stack size should be 3",3,stack.size());
 
         assertEquals("Value should be 'Item4'","Item4", stack.top().getReturnValue());
         assertEquals("Value should be 'Item4'","Item4",stack.pop().getReturnValue());
         assertFalse(stack.isEmpty());
-        assertEquals(2,stack.size());
+        assertEquals("Stack size should be 2",2,stack.size());
 
         assertEquals("Value should be 'Item2'","Item2", stack.top().getReturnValue());
         assertEquals("Value should be 'Item2'","Item2",stack.pop().getReturnValue());
         assertFalse(stack.isEmpty());
-        assertEquals(1,stack.size());
+        assertEquals("Stack size should be 1",1,stack.size());
 
         assertEquals("Value should be 'Item1'","Item1", stack.top().getReturnValue());
         assertEquals("Value should be 'Item1'","Item1",stack.pop().getReturnValue());
         assertTrue(stack.isEmpty());
-        assertEquals(0,stack.size());
+        assertEquals("Stack size should be 0",0,stack.size());
     }
 }

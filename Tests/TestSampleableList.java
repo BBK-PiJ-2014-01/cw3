@@ -32,13 +32,13 @@ public class TestSampleableList {
         list.add("Item5");
         list.add("Item6");
         SampleableList newList = list.sample();
-        assertEquals(6,list.size());
-        assertEquals(3, newList.size());
-        assertEquals(list.get(0).getReturnValue(),newList.get(0).getReturnValue());
+        assertEquals("List size should be 6",6,list.size());
+        assertEquals("List size should be 3",3, newList.size());
+        assertEquals("Values between the two lists should match",list.get(0).getReturnValue(),newList.get(0).getReturnValue());
         assertEquals("Value should be 'Item1'","Item1",newList.get(0).getReturnValue());
-        assertEquals(list.get(2).getReturnValue(),newList.get(1).getReturnValue());
+        assertEquals("Values between the two lists should match",list.get(2).getReturnValue(),newList.get(1).getReturnValue());
         assertEquals("Value should be 'Item3'","Item3",newList.get(1).getReturnValue());
-        assertEquals(list.get(4).getReturnValue(),newList.get(2).getReturnValue());
+        assertEquals("Values between the two lists should match",list.get(4).getReturnValue(),newList.get(2).getReturnValue());
         assertEquals("Value should be 'Item5'","Item5",newList.get(2).getReturnValue());
     }
 }

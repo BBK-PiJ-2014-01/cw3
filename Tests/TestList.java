@@ -8,6 +8,7 @@ import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 
 public class TestList {
     List list;
@@ -26,7 +27,7 @@ public class TestList {
      *  - size() returns 0
      */
         assertTrue("The list does not recognise being empty", list.isEmpty());
-        assertEquals("The list size should be 0",0,list.size());
+        assertEquals("List size should be 0",0,list.size());
 
     /*
      * When the first element is added to an empty list, using add(object), tests that:
@@ -34,14 +35,14 @@ public class TestList {
      * When the first and only element is removed, tests that:
      *  - the list is empty, the list size is 0.
      */
-        assertEquals(null,list.add("String1"));
+        assertNull("Should return null value",list.add("String1"));
         assertEquals("'NO_ERROR' message should be found",ErrorMessage.NO_ERROR,list.get(0).getError());
-        assertFalse(list.isEmpty());
-        assertEquals(1, list.size());
+        assertFalse("List should not return 'empty'",list.isEmpty());
+        assertEquals("List size should be 1",1, list.size());
         assertEquals("Value should be 'String1'","String1",list.get(0).getReturnValue());
         assertEquals("Value should be 'String1'","String1",list.remove(0).getReturnValue());
-        assertTrue(list.isEmpty());
-        assertEquals(0, list.size());
+        assertTrue("The list does not recognise being empty",list.isEmpty());
+        assertEquals("List size should be 0",0, list.size());
         assertEquals("Error message should be 'EMPTY_STRUCTURE'",ErrorMessage.EMPTY_STRUCTURE,list.get(0).getError());
         assertEquals("Error message should be 'EMPTY_STRUCTURE'",ErrorMessage.EMPTY_STRUCTURE,list.remove(0).getError());
     /*
@@ -50,10 +51,10 @@ public class TestList {
         assertEquals("Error message should be 'INDEX_OUT_OF_BOUNDS'",ErrorMessage.INDEX_OUT_OF_BOUNDS,list.add(0,"String1").getError());
         assertEquals("Error message should be 'INDEX_OUT_OF_BOUNDS'",ErrorMessage.INDEX_OUT_OF_BOUNDS,list.add(-1,"String1").getError());
         assertEquals("Error message should be 'INDEX_OUT_OF_BOUNDS'",ErrorMessage.INDEX_OUT_OF_BOUNDS,list.add(2,"String1").getError());
-        assertEquals(null,list.add("String1"));
-        assertEquals(null,list.add(0,"String2"));
-        assertFalse(list.isEmpty());
-        assertEquals(2,list.size());
+        assertNull("Should return null value", list.add("String1"));
+        assertNull("Should return null value", list.add(0, "String2"));
+        assertFalse("List should not return 'empty'", list.isEmpty());
+        assertEquals("List size should be 2",2, list.size());
         assertEquals("Error message should be 'INVALID_ARGUMENT'",ErrorMessage.INVALID_ARGUMENT,list.add(null).getError());
         assertEquals("Error message should be 'INVALID_ARGUMENT'",ErrorMessage.INVALID_ARGUMENT,list.add(1,null).getError());
         assertEquals("Error message should be 'INDEX_OUT_OF_BOUNDS'",ErrorMessage.INDEX_OUT_OF_BOUNDS,list.get(2).getError());
@@ -61,30 +62,30 @@ public class TestList {
         assertEquals("Error message should be 'INDEX_OUT_OF_BOUNDS'",ErrorMessage.INDEX_OUT_OF_BOUNDS,list.get(-1).getError());
         assertEquals("Error message should be 'INDEX_OUT_OF_BOUNDS'",ErrorMessage.INDEX_OUT_OF_BOUNDS,list.remove(-1).getError());
         assertEquals("Value should be 'String1'","String1",list.get(1).getReturnValue());
-        assertFalse(list.isEmpty());
-        assertEquals(2,list.size());
+        assertFalse("List should not return 'empty'",list.isEmpty());
+        assertEquals("List size should be 2",2,list.size());
         assertEquals("Value should be 'String1'","String1",list.remove(1).getReturnValue());
-        assertFalse(list.isEmpty());
-        assertEquals(1,list.size());
+        assertFalse("List should not return 'empty'",list.isEmpty());
+        assertEquals("List size should be 1",1,list.size());
         assertEquals("Value should be 'String2'","String2",list.get(0).getReturnValue());
-        assertFalse(list.isEmpty());
-        assertEquals(1,list.size());
+        assertFalse("List should not return 'empty'",list.isEmpty());
+        assertEquals("List size should be 1",1,list.size());
         assertEquals("Value should be 'String2'","String2",list.remove(0).getReturnValue());
-        assertTrue(list.isEmpty());
-        assertEquals(0,list.size());
+        assertTrue("The list does not recognise being empty",list.isEmpty());
+        assertEquals("List size should be 0",0,list.size());
     /*
      * Further tests to validate that adding and removing using indexes work correctly
      */
-        assertEquals(null,list.add("String1"));
+        assertNull("Should return null value", list.add("String1"));
         assertEquals("Value should be 'String1'","String1",list.get(0).getReturnValue());
-        assertEquals(null,list.add("String2"));
+        assertNull("Should return null value", list.add("String2"));
         assertEquals("Value should be 'String2'","String2",list.get(1).getReturnValue());
-        assertEquals(null,list.add("String3"));
+        assertNull("Should return null value", list.add("String3"));
         assertEquals("Value should be 'String3'","String3",list.get(2).getReturnValue());
-        assertEquals(null,list.add("String4"));
+        assertNull("Should return null value", list.add("String4"));
         assertEquals("Value should be 'String4'","String4",list.get(3).getReturnValue());
         // Checking that indexes are updated accordingly after adding an element in position 2
-        assertEquals(null,list.add(2,"String5"));
+        assertNull("Should return null value", list.add(2, "String5"));
         assertEquals("Value should be 'String1'","String1",list.get(0).getReturnValue());
         assertEquals("Value should be 'String2'","String2",list.get(1).getReturnValue());
         assertEquals("Value should be 'String5'","String5",list.get(2).getReturnValue());
@@ -101,8 +102,8 @@ public class TestList {
         assertEquals("Value should be 'String3'","String3",list.remove(list.size()-1).getReturnValue());
         assertEquals("Value should be 'String5'","String5",list.remove(list.size()-1).getReturnValue());
         assertEquals("Value should be 'String2'","String2",list.remove(list.size()-1).getReturnValue());
-        assertTrue(list.isEmpty());
-        assertEquals(0,list.size());
+        assertTrue("The list does not recognise being empty",list.isEmpty());
+        assertEquals("List size should be 0",0,list.size());
     }
 
 }
