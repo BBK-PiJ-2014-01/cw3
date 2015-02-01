@@ -1,5 +1,10 @@
 /**
  * Created by PierreM on 05/12/2014.
+ * Pointer based implementation of the Interface List
+ * - Class 'node' nested within the LinkedList Class making the management of the nodes transparent to the user of the list
+ * - Creating a list generates:
+ *      . a head node pointing to null, with an index set to -1
+ *      . an index reference storing the index value of the node that will be created next.
  */
 public class LinkedList implements List {
 
@@ -97,6 +102,7 @@ public class LinkedList implements List {
                 Node temp = getNextNode();
                 setNextNode(node);
                 node.setNextNode(temp);
+                // Re-aligning the index (incremented by 1) of all nodes positioned after the added node
                 node.getNextNode().updateNodeIndex(1);
             } else
                 getNextNode().addNode(index, node);
@@ -126,6 +132,7 @@ public class LinkedList implements List {
                 Node temp = getNextNode();
                 if (getNextNode().getNextNode() != null) {
                     setNextNode(getNextNode().getNextNode());
+                    // Re-aligning the index (decremented by 1) of all nodes positioned after the node removed
                     getNextNode().updateNodeIndex(-1);
                 } else {
                     setNextNode(null);
