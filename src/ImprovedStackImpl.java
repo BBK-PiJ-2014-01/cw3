@@ -7,6 +7,7 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     /**
      * Constructor for the class ImprovedStackImpl
+     * Creates an instance of the Class StackImpl with an underlying structure set to a linked list
      */
     public ImprovedStackImpl() {
         internalStack = new StackImpl(new LinkedList());
